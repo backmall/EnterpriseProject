@@ -13,4 +13,6 @@ module.exports = function(app) {
   app.get("/api/test/admin", [authJwt.verifyToken, authJwt.isAdmin], controller.adminBoard);
   app.get("/login", [authJwt.isLogged], controller.loginPage);
   app.get("/register", [authJwt.isLogged], controller.registerPage);
+  app.get("/profile/:userId?", [authJwt.getProfile], controller.profilePage);
+  app.get("/home", controller.alreadyLogged);
 };

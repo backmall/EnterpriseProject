@@ -48,6 +48,7 @@ app.get("/", (req, res) => {
   res.json({ message: "Welcome to Wojciech application." });
 });
 
+
 // routes
 require("./routes/auth.routes")(app);
 require("./routes/user.routes")(app);
