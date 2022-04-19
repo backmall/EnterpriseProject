@@ -11,7 +11,7 @@ isUserUnique = (req, res, next) => {
       return;
     }
     if (user) {
-      res.status(400).send({ message: "Error! This username is taken" });
+      res.status(460).send({ message: "Error! This username is taken" });
       return;
     }
     // Email
@@ -23,7 +23,7 @@ isUserUnique = (req, res, next) => {
         return;
       }
       if (user) {
-        res.status(400).send({ message: "Error! This e-mail is taken!" });
+        res.status(470).send({ message: "Error! This e-mail is taken!" });
         return;
       }
       next();

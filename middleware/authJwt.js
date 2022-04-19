@@ -3,6 +3,20 @@ const config = require("../config/auth.config.js");
 const db = require("../models");
 const User = db.user;
 const Role = db.role;
+isLogged = (req, res, next) =>{
+  let token = req.session.token;
+  if(!token){
+    next();
+  }
+  else{
+    jwt.verify(token, config.secret, (err) => {
+      if (!err) {
+        return res.render("../views/index.ejs");
+      }
+    });
+  }
+};
+
 verifyToken = (req, res, next) => {
   let token = req.session.token;
   if (!token) {
@@ -46,5 +60,6 @@ isAdmin = (req, res, next) => {
 const authJwt = {
   verifyToken,
   isAdmin,
+  isLogged
 };
 module.exports = authJwt;

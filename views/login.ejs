@@ -118,6 +118,32 @@
         text-decoration: underline;
         }
 
+        /*image modal*/
+        #frame {
+            display: none;
+            position: absolute;
+            bottom: 10%;
+            left: 50%;
+            transform: translate(-50%);
+        }
+        .modal{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        #button{
+            line-height: 40px;
+            background-color: #EC3434;
+            cursor: pointer;
+            color: #fff;
+            font-weight: 400;
+            font-size: 14px;
+            width: 100%;
+            text-align: center;
+            border-radius: 10px;
+        }
+
     </style>
   </head>
   <body onload="addListener()">
@@ -140,6 +166,14 @@
         </div>
       </form>
     </div>
+    <div id="frame">
+        <div class="modal">
+            <img src="data:image/png;base64,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" width="44" height="38" />
+              <span class="title">Oh snap!</span>
+              <p id="errorMessage">Something went wrong</p>
+              <div id="button">Dismiss</div>
+        </div>
+    </div>
     <script>
         function addListener(){
             document.getElementById("loginForm").addEventListener('submit', function(e){
@@ -147,6 +181,11 @@
                 makeCall();
             })
         }
+        let button = document.getElementById("button");
+            button.addEventListener("click", ()=>{
+            document.getElementById("frame").style.display = "none";
+            })
+
         function makeCall(){
             let username = document.getElementById("form-username").value;
             let password = document.getElementById("form-password").value;
@@ -154,15 +193,28 @@
                 "username": username,
                 "password": password
             }
-            fetch("/auth/signin", {
-                method: "POST",
-                headers: {'Content-Type': 'application/json'},
-                body: JSON.stringify(data)
-            }).catch((err) =>{
-                console.log(err);
-            }).then((res)=>{
-                console.log(res);
-            })
+           let requestJSON = JSON.stringify(data)
+
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+                    window.location.href = "/";
+                }
+                else if(this.readyState==4 && this.status == 404){
+                    document.getElementById("errorMessage").innerHTML = this.response.message;
+                    document.getElementById("frame").style.display = "block";
+                }
+                else if(this.readyState==4){
+                    document.getElementById("errorMessage").innerHTML = this.response.message;
+                    document.getElementById("frame").style.display = "block";
+                    console.log(this.response)
+                }
+            };
+            xhttp.open("POST", "/auth/signin", true);
+            xhttp.setRequestHeader('Content-type', 'application/json');
+            xhttp.responseType="json";
+            xhttp.send(requestJSON);
+            
         }
     </script>
 
