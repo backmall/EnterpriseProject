@@ -12,7 +12,7 @@ getProfile = (req, res, next)=>{
     if(req.params.userId){
       //basic profile
       console.log("getProfile-no token");
-      return res.render("../views/index.ejs");;
+      return res.render("../views/home.ejs");;
     }
     else{
       console.log(" no Profile specified-no token")
@@ -74,7 +74,7 @@ isLogged = (req, res, next) =>{
   else{
     jwt.verify(token, config.secret, (err) => {
       if (!err) {
-        return res.render("../views/index.ejs");
+        return res.render("../views/home.ejs");
       }
     });
   }

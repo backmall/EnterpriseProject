@@ -198,7 +198,7 @@
             var xhttp = new XMLHttpRequest();
             xhttp.onreadystatechange = function() {
                 if (this.readyState == 4 && this.status == 200) {
-                    window.location.href = "/";
+                    window.location.href = "/home";
                 }
                 else if(this.readyState==4 && this.status == 404){
                     document.getElementById("errorMessage").innerHTML = this.response.message;

@@ -217,7 +217,7 @@
 
                     xhr.onreadystatechange = function(){
                         if(this.readyState ==4 && this.status ==200){
-                            window.location.href = "/";
+                            window.location.href = "/home";
                         }    
                     }
                     xhr.open("POST", "/auth/signin", true);

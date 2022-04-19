@@ -211,8 +211,8 @@ ul li:hover {
       <nav>
         <ul>
           <li><a href="/home">Home</a></li>
-          <li id="login"><a href="/login">Login</a></li>
-          <li id="signup" ><a href="/register">Signup</a></li>
+          <li><a href="/profile">Profile</a></li>
+          <li id="signup"><a>Signout</a></li>
         </ul>
       </nav>
       <div id="hamburger-icon" onclick="toggleMobileMenu(this)">
@@ -221,8 +221,8 @@ ul li:hover {
         <div class="bar3"></div>
         <ul class="mobile-menu">
           <li><a href="/home">Home</a></li>
-          <li id="login"><a href="/login">Login</a></li>
-          <li id="signup"><a href="/register">Signup</a></li>
+          <li><a href="/profile">My profile</a></li>
+          <li id="signup"><a>Signout</a></li>
         </ul>
       </div>
     </header>
@@ -282,8 +282,17 @@ ul li:hover {
       function toggleMobileMenu(menu) {
         menu.classList.toggle('open');
       }
-
-      
+      document.getElementById("signup").addEventListener("click", (e)=>{
+        fetch("/auth/signout",
+        {
+          headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+          },
+        method: "POST"}).then(function(res){
+          window.location.href="/home";
+        });
+      })
     </script>
   </body>
 </html>
